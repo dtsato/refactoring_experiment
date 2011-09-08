@@ -16,8 +16,8 @@ public class ProductsController {
 
     @RequestMapping("/see/suggested/products")
     public String seeSuggestedProducts(ModelMap model) {
-        cart.addTo(checkoutController.findUpsell(cart));
-        cart.addTo(checkoutController.findUpsell(cart));
+        cart.addTo(upsell.findUpsell(cart));
+        cart.addTo(upsell.findUpsell(cart));
         model.addAttribute("cart", cart);
         return "suggestedProducts";
     }
