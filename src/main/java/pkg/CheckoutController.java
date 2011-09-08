@@ -25,11 +25,6 @@ public class CheckoutController {
         return "checkout";
     }
 
-    @RequestMapping("/place/order")
-    public String placeOrder(ModelMap model) {
-        return new OrderController(order, cart).placeOrder(model);
-    }
-
     @RequestMapping("/see/suggested/products")
     public String seeSuggestedProducts(ModelMap model) {
         cart.addTo(findUpsell(cart));

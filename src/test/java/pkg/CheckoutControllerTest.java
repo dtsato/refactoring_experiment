@@ -29,7 +29,7 @@ public class CheckoutControllerTest {
     @Test
     public void place_order_in_checkout_should_make_an_order() {
         cart.addTo("dummy");
-        String result = bfc.placeOrder(model);
+        String result = new OrderController(order, cart).placeOrder(model);
         assertThat(result, equalTo("orderPlaced"));
         assertThat(model.toString(), equalTo("{order=Order{cart=Cart{contents=[[dummy]]}}}"));
     }
