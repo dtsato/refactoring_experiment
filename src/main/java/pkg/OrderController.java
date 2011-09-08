@@ -4,12 +4,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 public class OrderController {
-    private final CheckoutController checkoutController;
     private final Order order;
     private final Cart cart;
 
-    public OrderController(CheckoutController checkoutController, Order order, Cart cart) {
-        this.checkoutController = checkoutController;
+    public OrderController(Order order, Cart cart) {
         this.order = order;
         this.cart = cart;
     }
