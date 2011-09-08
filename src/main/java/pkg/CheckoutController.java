@@ -12,9 +12,9 @@ public class CheckoutController {
     private final Upsell upsell;
 
     @Autowired
-    public CheckoutController(Cart cart) {
+    public CheckoutController(Cart cart, Upsell upsell) {
         this.cart = cart;
-        upsell = new Upsell();
+        this.upsell = upsell;
     }
 
     @RequestMapping("/go/to/checkout/")

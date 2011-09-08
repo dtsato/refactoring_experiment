@@ -14,10 +14,11 @@ public class CheckoutControllerTest {
     private Order order = new Order(); // could as easily be a mock
     private ModelMap model = new ModelMap();
     private OrderController orderController;
+    private Upsell upsell = new Upsell();;
 
     @Before
     public void setup() {
-        bfc =new CheckoutController(cart);
+        bfc =new CheckoutController(cart, upsell);
         orderController = new OrderController(order, cart);
     }
 
