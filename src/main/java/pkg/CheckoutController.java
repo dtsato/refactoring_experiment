@@ -10,6 +10,7 @@ public class CheckoutController {
 
     private final Cart cart;
     private final Order order;
+    private final OrderController orderController = new OrderController(this);
 
     @Autowired
     public CheckoutController(Cart cart, Order order) {
@@ -27,9 +28,7 @@ public class CheckoutController {
 
     @RequestMapping("/place/order")
     public String placeOrder(ModelMap model) {
-        order.place(cart);
-        model.addAttribute("order", order);
-        return "orderPlaced";
+        return orderController.placeOrder(model);
     }
 
     @RequestMapping("/see/suggested/products")
@@ -49,4 +48,11 @@ public class CheckoutController {
     }
 
 
+    public Cart getCart() {
+        return cart;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
 }
