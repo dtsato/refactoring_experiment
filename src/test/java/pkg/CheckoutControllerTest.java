@@ -13,10 +13,12 @@ public class CheckoutControllerTest {
     private Cart cart = new Cart(); // could as easily be a mock
     private Order order = new Order(); // could as easily be a mock
     private ModelMap model = new ModelMap();
+    private OrderController orderController;
 
     @Before
     public void setup() {
         bfc =new CheckoutController(cart, order);
+        orderController = new OrderController(order, cart);
     }
 
     @Test
@@ -29,7 +31,7 @@ public class CheckoutControllerTest {
     @Test
     public void place_order_in_checkout_should_make_an_order() {
         cart.addTo("dummy");
-        String result = new OrderController(order, cart).placeOrder(model);
+        String result = orderController.placeOrder(model);
         assertThat(result, equalTo("orderPlaced"));
         assertThat(model.toString(), equalTo("{order=Order{cart=Cart{contents=[[dummy]]}}}"));
     }
