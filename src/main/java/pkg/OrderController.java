@@ -7,9 +7,9 @@ public class OrderController {
     private final CheckoutController checkoutController;
     private final Order order;
 
-    public OrderController(CheckoutController checkoutController) {
+    public OrderController(CheckoutController checkoutController, Order order) {
         this.checkoutController = checkoutController;
-        order = this.checkoutController.getOrder();
+        this.order = order;
     }
 
     @RequestMapping("/place/order")

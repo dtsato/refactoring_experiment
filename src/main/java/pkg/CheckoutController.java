@@ -27,7 +27,7 @@ public class CheckoutController {
 
     @RequestMapping("/place/order")
     public String placeOrder(ModelMap model) {
-        return new OrderController(this).placeOrder(model);
+        return new OrderController(this, order).placeOrder(model);
     }
 
     @RequestMapping("/see/suggested/products")
