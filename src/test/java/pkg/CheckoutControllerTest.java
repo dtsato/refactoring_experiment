@@ -15,12 +15,14 @@ public class CheckoutControllerTest {
     private ModelMap model = new ModelMap();
     private OrderController orderController;
     private Upsell upsell;
+    private ProductsController productsController;
 
     @Before
     public void setup() {
         upsell = new Upsell();
         bfc =new CheckoutController(cart, upsell);
         orderController = new OrderController(order, cart);
+        productsController = new ProductsController(bfc, cart);
     }
 
     @Test
@@ -40,7 +42,7 @@ public class CheckoutControllerTest {
 
     @Test
     public void show_suggested_products_should_add_two_upsells() {
-        String result = new ProductsController(bfc, cart).seeSuggestedProducts(model);
+        String result = productsController.seeSuggestedProducts(model);
         assertThat(result, equalTo("suggestedProducts"));
         assertThat(model.toString(), equalTo("{cart=Cart{contents=[[iPad, iPod Nano]]}}"));
     }
