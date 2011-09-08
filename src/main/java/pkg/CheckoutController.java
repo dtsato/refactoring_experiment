@@ -33,9 +33,5 @@ public class CheckoutController {
         return "suggestedProducts";
     }
 
-    String findUpsell(Cart cart) {
-        return upsell.findUpsell(cart);
-    }
-
 
 }
