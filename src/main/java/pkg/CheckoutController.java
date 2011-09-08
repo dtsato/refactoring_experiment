@@ -23,11 +23,6 @@ public class CheckoutController {
         return "checkout";
     }
 
-    @RequestMapping("/see/suggested/products")
-    public String seeSuggestedProducts(ModelMap model) {
-        return new ProductsController(this, cart).seeSuggestedProducts(model);
-    }
-
     String findUpsell(Cart cart) {
         if (cart.size() == 0) {
             return "iPad";
