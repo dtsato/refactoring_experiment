@@ -47,11 +47,4 @@ public class CheckoutController {
     }
 
 
-    public Cart getCart() {
-        return cart;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
 }
