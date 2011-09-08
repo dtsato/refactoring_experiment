@@ -8,10 +8,10 @@ public class OrderController {
     private final Order order;
     private final Cart cart;
 
-    public OrderController(CheckoutController checkoutController, Order order) {
+    public OrderController(CheckoutController checkoutController, Order order, Cart cart) {
         this.checkoutController = checkoutController;
         this.order = order;
-        cart = this.checkoutController.getCart();
+        this.cart = cart;
     }
 
     @RequestMapping("/place/order")
