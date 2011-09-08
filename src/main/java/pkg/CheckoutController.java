@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CheckoutController {
 
     private final Cart cart;
+    private final Upsell upsell = new Upsell();
 
     @Autowired
     public CheckoutController(Cart cart) {
@@ -18,17 +19,13 @@ public class CheckoutController {
     @RequestMapping("/go/to/checkout/")
     public String goCheckout(ModelMap model) {
         // other stuff
-        cart.addTo(findUpsell(cart));
+        cart.addTo(upsell.findUpsell(cart));
         model.addAttribute("cart", cart);
         return "checkout";
     }
 
     String findUpsell(Cart cart) {
-        if (cart.size() == 0) {
-            return "iPad";
-        } else {
-            return "iPod Nano";
-        }
+        return upsell.findUpsell(cart);
     }
 
 
