@@ -31,11 +31,4 @@ public class CheckoutController {
     }
 
 
-    public Upsell getUpsell() {
-        return upsell;
-    }
-
-    public Cart getCart() {
-        return cart;
-    }
 }
