@@ -37,7 +37,4 @@ public class CheckoutController {
     }
 
 
-    public Cart getCart() {
-        return cart;
-    }
 }
