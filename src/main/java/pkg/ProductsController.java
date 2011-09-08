@@ -5,16 +5,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class ProductsController {
     private final CheckoutController checkoutController;
+    private final Cart cart;
 
     public ProductsController(CheckoutController checkoutController) {
         this.checkoutController = checkoutController;
+        cart = this.checkoutController.getCart();
     }
 
     @RequestMapping("/see/suggested/products")
     public String seeSuggestedProducts(ModelMap model) {
-        checkoutController.getCart().addTo(checkoutController.findUpsell(checkoutController.getCart()));
-        checkoutController.getCart().addTo(checkoutController.findUpsell(checkoutController.getCart()));
-        model.addAttribute("cart", checkoutController.getCart());
+        cart.addTo(checkoutController.findUpsell(cart));
+        cart.addTo(checkoutController.findUpsell(cart));
+        model.addAttribute("cart", cart);
         return "suggestedProducts";
     }
 }
