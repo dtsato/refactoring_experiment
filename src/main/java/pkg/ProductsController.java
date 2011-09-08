@@ -7,7 +7,7 @@ public class ProductsController {
     private final CheckoutController checkoutController;
     private final Cart cart;
 
-    public ProductsController(CheckoutController checkoutController, Cart cart) {
+    public ProductsController(CheckoutController checkoutController, Cart cart, Upsell upsell) {
         this.checkoutController = checkoutController;
         this.cart = cart;
     }
