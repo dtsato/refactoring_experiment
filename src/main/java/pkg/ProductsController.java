@@ -4,12 +4,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 public class ProductsController {
-    private final CheckoutController checkoutController;
     private final Cart cart;
     private final Upsell upsell;
 
-    public ProductsController(CheckoutController checkoutController, Cart cart, Upsell upsell) {
-        this.checkoutController = checkoutController;
+    public ProductsController(Cart cart, Upsell upsell) {
         this.cart = cart;
         this.upsell = upsell;
     }
