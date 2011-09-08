@@ -25,9 +25,5 @@ public class CheckoutController {
         return "checkout";
     }
 
-    String findUpsell(Cart cart) {
-        return upsell.findUpsell(cart);
-    }
-
 
 }
