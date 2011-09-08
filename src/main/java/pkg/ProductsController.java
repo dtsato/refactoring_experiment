@@ -7,9 +7,9 @@ public class ProductsController {
     private final CheckoutController checkoutController;
     private final Cart cart;
 
-    public ProductsController(CheckoutController checkoutController) {
+    public ProductsController(CheckoutController checkoutController, Cart cart) {
         this.checkoutController = checkoutController;
-        cart = this.checkoutController.getCart();
+        this.cart = cart;
     }
 
     @RequestMapping("/see/suggested/products")

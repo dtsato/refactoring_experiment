@@ -25,7 +25,7 @@ public class CheckoutController {
 
     @RequestMapping("/see/suggested/products")
     public String seeSuggestedProducts(ModelMap model) {
-        return new ProductsController(this).seeSuggestedProducts(model);
+        return new ProductsController(this, cart).seeSuggestedProducts(model);
     }
 
     String findUpsell(Cart cart) {
