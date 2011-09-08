@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CheckoutController {
 
     private final Cart cart;
-    private final Order order;
 
     @Autowired
-    public CheckoutController(Cart cart, Order order) {
+    public CheckoutController(Cart cart) {
         this.cart = cart;
-        this.order = order;
     }
 
     @RequestMapping("/go/to/checkout/")

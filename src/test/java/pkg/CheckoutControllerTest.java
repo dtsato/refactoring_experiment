@@ -17,7 +17,7 @@ public class CheckoutControllerTest {
 
     @Before
     public void setup() {
-        bfc =new CheckoutController(cart, order);
+        bfc =new CheckoutController(cart);
         orderController = new OrderController(order, cart);
     }
 
