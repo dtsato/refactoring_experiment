@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CheckoutController {
 
     private final Cart cart;
+    private final ProductsController productsController = new ProductsController(this);
 
     @Autowired
     public CheckoutController(Cart cart) {
@@ -25,10 +26,7 @@ public class CheckoutController {
 
     @RequestMapping("/see/suggested/products")
     public String seeSuggestedProducts(ModelMap model) {
-        cart.addTo(findUpsell(cart));
-        cart.addTo(findUpsell(cart));
-        model.addAttribute("cart", cart);
-        return "suggestedProducts";
+        return productsController.seeSuggestedProducts(model);
     }
 
     String findUpsell(Cart cart) {
@@ -40,4 +38,7 @@ public class CheckoutController {
     }
 
 
+    public Cart getCart() {
+        return cart;
+    }
 }
