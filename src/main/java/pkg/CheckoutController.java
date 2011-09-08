@@ -10,6 +10,7 @@ public class CheckoutController {
 
     private final Cart cart;
     private final Upsell upsell;
+    private final ProductsController productsController = new ProductsController(this);
 
     @Autowired
     public CheckoutController(Cart cart, Upsell upsell) {
@@ -27,11 +28,15 @@ public class CheckoutController {
 
     @RequestMapping("/see/suggested/products")
     public String seeSuggestedProducts(ModelMap model) {
-        cart.addTo(upsell.findUpsell(cart));
-        cart.addTo(upsell.findUpsell(cart));
-        model.addAttribute("cart", cart);
-        return "suggestedProducts";
+        return productsController.seeSuggestedProducts(model);
     }
 
 
+    public Upsell getUpsell() {
+        return upsell;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
 }
