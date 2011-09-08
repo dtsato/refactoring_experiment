@@ -39,7 +39,7 @@ public class CheckoutControllerTest {
 
     @Test
     public void show_suggested_products_should_add_two_upsells() {
-        String result = bfc.seeSuggestedProducts(model);
+        String result = new ProductsController(cart, upsell).seeSuggestedProducts(model);
         assertThat(result, equalTo("suggestedProducts"));
         assertThat(model.toString(), equalTo("{cart=Cart{contents=[[iPad, iPod Nano]]}}"));
     }
